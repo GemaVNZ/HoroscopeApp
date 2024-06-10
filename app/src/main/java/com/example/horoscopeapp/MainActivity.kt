@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         Horoscope(id="aries",name="",logo=10),
         Horoscope(id="aquarius",name="Aquarius",logo=11),
         Horoscope(id="pisces",name="Pisces",logo=12),
+
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
