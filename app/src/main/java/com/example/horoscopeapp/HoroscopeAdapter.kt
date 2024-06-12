@@ -3,11 +3,13 @@ package com.example.horoscopeapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class HoroscopeAdapter (private val dataSet: List<Horoscope>): RecyclerView.Adapter<HoroscopeViewHolder>() {
+class HoroscopeAdapter (private val dataSet: List<Horoscope>, private val onItemClickListener: (Int) -> Unit)
+    : RecyclerView.Adapter<HoroscopeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
 
@@ -17,6 +19,9 @@ class HoroscopeAdapter (private val dataSet: List<Horoscope>): RecyclerView.Adap
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
         val horoscope = dataSet[position]
         holder.render(horoscope)
+        holder.itemView.setOnClickListener{
+            onItemClickListener(position)
+        }
     }
 
     override fun getItemCount() : Int {

@@ -1,5 +1,6 @@
 package com.example.horoscopeapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         Horoscope("virgo",R.string.horoscope_name_virgo,R.string.horoscope_date_virgo, R.drawable.virgo_icon),
         Horoscope("libra",R.string.horoscope_name_libra,R.string.horoscope_date_libra ,R.drawable.libra_icon),
         Horoscope("scorpio",R.string.horoscope_name_scorpio,R.string.horoscope_date_scorpio,  R.drawable.scorpio_icon),
-        Horoscope("aries",R.string.horoscope_name_sagittarius,R.string.horoscope_date_sagittarius,R.drawable.sagittarius_icon),
-        Horoscope("aries",R.string.horoscope_name_capricorn,R.string.horoscope_date_capricorn,R.drawable.capricorn_icon),
+        Horoscope("sagittarius",R.string.horoscope_name_sagittarius,R.string.horoscope_date_sagittarius,R.drawable.sagittarius_icon),
+        Horoscope("capricorn",R.string.horoscope_name_capricorn,R.string.horoscope_date_capricorn,R.drawable.capricorn_icon),
         Horoscope("aquarius",R.string.horoscope_name_aquarius,R.string.horoscope_date_aquarius,R.drawable.aquarius_icon),
         Horoscope("pisces",R.string.horoscope_name_pisces,R.string.horoscope_date_pisces,R.drawable.pisces_icon),
 
@@ -29,9 +30,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapter = HoroscopeAdapter(horoscopeList)
+        val adapter = HoroscopeAdapter(horoscopeList) { position ->
+            navigateToDetail(horoscopeList[position])
+        }
+
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
+
+    fun navigateToDetail (horoscope:Horoscope) {
+        val intent: Intent = Intent (this, DetailActivity::class.java)
+        intent.putExtra("HOROSCOPE_ID", horoscope.id);
+        startActivity(intent)
+    }
+
 }
+
