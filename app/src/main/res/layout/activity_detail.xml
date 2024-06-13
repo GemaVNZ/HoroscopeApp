@@ -4,13 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#50DBC2FB"
     tools:context=".DetailActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="172dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-    </TextView>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/rubik"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/desctextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_ttf"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="25sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="470dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/predtextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EBF8F9"
+            android:fontFamily="@font/rubik"
+            android:justificationMode="inter_word"
+            android:text="Sepa que atravesará una etapa donde tendrá que pensar en soledad y poner en orden las ideas tomando una determinación importante para su vida."
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -12,16 +12,18 @@ class DetailActivity : AppCompatActivity() {
         const val EXTRA_HOROSCOPE_ID = "HOROSCOPE_ID"
     }
 
-    lateinit var horoscope:Horoscope
+    lateinit var horoscope : Horoscope
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
         val id = intent.getStringExtra(EXTRA_HOROSCOPE_ID)
-        horoscope=HoroscopeProvider.findById(id!!)!!
+
+        horoscope = HoroscopeProvider.findById(id!!)!!
 
 
         findViewById<TextView>(R.id.textView).setText(horoscope.name)
-        findViewById<ImageView>(R.id.logoImageView).setImageResource(horoscope.logo)
+        findViewById<ImageView>(R.id.imageView).setImageResource(horoscope.logo)
+        findViewById<TextView>(R.id.desctextView).setText(horoscope.description)
     }
 }

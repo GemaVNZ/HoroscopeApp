@@ -16,11 +16,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        horoscopeList = HoroscopeProvider.findAll()
+
         val adapter = HoroscopeAdapter(horoscopeList) { position ->
             navigateToDetail(horoscopeList[position])
         }
-
-        horoscopeList = HoroscopeProvider.findAll()
 
 
         recyclerView = findViewById(R.id.recyclerView)
