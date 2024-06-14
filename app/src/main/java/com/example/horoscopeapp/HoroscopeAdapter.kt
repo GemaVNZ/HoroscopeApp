@@ -9,11 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class HoroscopeAdapter (private val dataSet: List<Horoscope>, private val onItemClickListener: (Int) -> Unit)
-    : RecyclerView.Adapter<HoroscopeViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
+class HoroscopeAdapter (private var dataSet: List<Horoscope>, private val onItemClickListener: (Int) -> Unit) :
+    RecyclerView.Adapter<HoroscopeViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
-
         return HoroscopeViewHolder(view)
     }
 
@@ -27,6 +26,12 @@ class HoroscopeAdapter (private val dataSet: List<Horoscope>, private val onItem
 
     override fun getItemCount() : Int {
         return dataSet.size
+    }
+
+    //Este método sirve para actualizar los datos.
+    fun updateData(newDataSet: List<Horoscope>){
+        dataSet = newDataSet
+        notifyDataSetChanged()
     }
 }
 
