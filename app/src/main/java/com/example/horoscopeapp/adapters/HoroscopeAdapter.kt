@@ -1,13 +1,13 @@
-package com.example.horoscopeapp
+package com.example.horoscopeapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.horoscopeapp.R
+import com.example.horoscopeapp.data.Horoscope
 
 class HoroscopeAdapter (private var dataSet: List<Horoscope>, private val onItemClickListener: (Int) -> Unit) :
     RecyclerView.Adapter<HoroscopeViewHolder>() {

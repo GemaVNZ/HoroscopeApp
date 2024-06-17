@@ -1,4 +1,4 @@
-package com.example.horoscopeapp
+package com.example.horoscopeapp.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,10 @@ import android.view.Menu
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.horoscopeapp.data.Horoscope
+import com.example.horoscopeapp.adapters.HoroscopeAdapter
+import com.example.horoscopeapp.data.HoroscopeProvider
+import com.example.horoscopeapp.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun navigateToDetail (horoscope:Horoscope) {
+    fun navigateToDetail (horoscope: Horoscope) {
         val intent: Intent = Intent (this, DetailActivity::class.java)
         intent.putExtra(DetailActivity.EXTRA_HOROSCOPE_ID, horoscope.id);
         startActivity(intent)
