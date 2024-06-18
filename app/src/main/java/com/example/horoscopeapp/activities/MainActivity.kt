@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         horoscopeList = HoroscopeProvider.findAll()
         adapter = HoroscopeAdapter(horoscopeList) { position ->
             navigateToDetail(horoscopeList[position])
@@ -37,7 +36,13 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //Método que incorpora el menú de Android en la vista.
+    //Método que actualiza la vista tras haber cambiado o ejecutado alguna acción en otra.
+    override fun onResume() {
+        super.onResume()
+        adapter.updateData(horoscopeList)
+    }
+
+    //Método que incorpora el menú de Android en la vista.Dentro de dicho menú, se realiza diferentes métodos.
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_activitymain, menu)
 

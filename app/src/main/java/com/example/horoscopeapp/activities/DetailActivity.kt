@@ -40,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
 
         horoscope = HoroscopeProvider.findById(id!!)!!
 
-        isFavorite = sessionManager.getFavoriteHoroscope()?.equals(horoscope.id) ?: false
+        isFavorite = sessionManager.isFavorite(horoscope.id)
 
         textView = findViewById(R.id.textView)
         imageView = findViewById(R.id.imageView)
@@ -48,6 +48,10 @@ class DetailActivity : AppCompatActivity() {
 
         textView.setText(horoscope.name)
         imageView.setImageResource(horoscope.logo)
+
+        supportActionBar?.setTitle(horoscope.name)
+        supportActionBar?.setSubtitle(horoscope.description)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun setFavoriteIcon () {
@@ -68,6 +72,10 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
             R.id.menu_favorite -> {
                 if (isFavorite) {
                     sessionManager.setFavoriteHoroscope("")
@@ -77,20 +85,20 @@ class DetailActivity : AppCompatActivity() {
                 isFavorite = !isFavorite
                 setFavoriteIcon()
                 true
-        }
-                R.id.menu_share -> {
-                    val sendIntent = Intent ()
-                    sendIntent.setAction(Intent.ACTION_SEND)
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
-                    sendIntent.setType("text/plain")
+            }
+            R.id.menu_share -> {
+                val sendIntent = Intent ()
+                sendIntent.setAction(Intent.ACTION_SEND)
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                sendIntent.setType("text/plain")
 
-                    val shareIntent = Intent.createChooser(sendIntent, null)
-                    startActivity(shareIntent)
-                    true
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
+                true
                 }
                 else -> super.onOptionsItemSelected(item)
             }
-    }
+        }
 }
 
 
