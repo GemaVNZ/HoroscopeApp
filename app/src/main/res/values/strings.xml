@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HoroscopeApp</string>
+    <string name="app_name">Your Horoscope App</string>
 
     <string name="horoscope_name_aries">Aries</string>
     <string name="horoscope_name_taurus">Taurus</string>
@@ -27,12 +27,16 @@
     <string name="horoscope_date_aquarius">January 20 to February 18</string>
     <string name="horoscope_date_pisces">February 19 to March 20</string>
 
-    <string name="horoscope_of_day">Horoscope of today:</string>
+    <string name="horoscope_of_day">Your horoscope:</string>
 
     <string name="background_detail">background_image</string>
 
     <string name="menu_search">Search</string>
     <string name="menu_favorite">Favorite</string>
     <string name="menu_share">Share</string>
+
+    <string name="menu_daily">Today</string>
+    <string name="menu_weekly">Week</string>
+    <string name="menu_monthly">Month</string>
 
 </resources>
