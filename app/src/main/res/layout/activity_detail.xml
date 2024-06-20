@@ -1,66 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#50DBC2FB"
-    tools:context=".activities.DetailActivity">
+    tools:context=".activities.DetailActivity"
+    android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="172dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/backgroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/fondo4_const"
+            android:contentDescription="@string/background_detail"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:id="@+id/linearlayoutDetailActivity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginVertical="15dp"
+            tools:src="@drawable/pisces_icon" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/rubik"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:textSize="50sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+            android:text="@string/horoscope_of_day"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
         <TextView
-            android:id="@+id/desctextView"
+            android:id="@+id/dailyHoroscopeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/raleway_ttf"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="25sp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/predtextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#EBF8F9"
+            android:layout_margin="10dp"
+            android:background="#00F9FBFB"
             android:fontFamily="@font/rubik"
             android:justificationMode="inter_word"
-            android:text="Sepa que atravesará una etapa donde tendrá que pensar en soledad y poner en orden las ideas tomando una determinación importante para su vida."
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:textColor="@color/white"
+            android:textSize="20sp" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>
